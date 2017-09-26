@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
+use App\User;
+
+class AuthenticationUser extends Controller
+{
+
+    protected $auth;
+
+    public function __construct(Guard $auth)
+    {
+
+        $this->auth = $auth;
+
+        $this->middleware( 'auth',[
+            'except' => [
+            'getLogin',
+            'getRegister',
+            'postLogin',
+            'postRegister']
+        ]);
+
+    }
+
+    public function getLogin(){
+
+        return view('authenticationuser.login');
+
+    }
+
+    public function getRegister(){
+
+        return view('authenticationuser.register');
+
+    }
+
+    public function postLogin(Request $request)
+    {
+
+        $users = User::all();
+
+        foreach($users as $user){
+
+            if($user->username == $request->username && $user->password == $request->password){
+
+              $this->auth->login($user);
+
+              return redirect('main')->with('user', $user->username);
+
+            }
+        }
+        return redirect('login');
+    }
+
+    public function postRegister(Request $request, User $users)
+    {
+
+        $this->validate(request(), [
+            'name' =>"required",
+            'email' =>"required",
+            'username' =>"required",
+            'password' =>"required"
+        ]);
+        $users->name=$request->name;
+        $users->email=$request->email;
+        $users->username=$request->username;
+        $users->password=$request->password;
+
+        $users->save();
+
+        return view('authenticationuser.login');
+    }
+
+    public function getMain(){
+
+        return view('main');
+
+    }
+
+    public function getLogout()
+    {
+        $this->auth->logout();
+        return redirect("login");
+    }
+
+}
