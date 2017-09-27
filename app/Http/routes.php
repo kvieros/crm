@@ -16,15 +16,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+//Authendicate user routes
 Route::get('/main', 'AuthenticationUser@getMain');
-
 Route::get('/login','AuthenticationUser@getLogin');
-
 Route::get('/register', 'AuthenticationUser@getRegister');
-
 Route::Post('/login','AuthenticationUser@postLogin');
-
 Route::post('/register', 'AuthenticationUser@postRegister');
-
 Route::get('/logout', 'AuthenticationUser@getLogout');
 
+//Customer routs
+Route::get('/addcustomer', 'customers\Customers@addCustomer');
+Route::get('/customerlist', 'customers\Customers@customerList');
+Route::get('/groups', 'customers\Customers@groups');

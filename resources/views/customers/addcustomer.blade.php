@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-<h1>main page</h1>
+   <h1>add a customer</h1>
 @endsection
