@@ -1,8 +1,8 @@
 @extends('layout')
 @section('content')
        <div class="panel-body">
-
-           <form class="form-horizontal" id="jq-validation-form">
+           <form class="form-horizontal" id="jq-validation-form" method="post" action="addcustomer">
+               {{ csrf_field() }}
                <div class="form-group">
                    <label for="jq-validation-email" class="col-sm-3 control-label">First Name</label>
                    <div class="col-sm-9">
@@ -135,4 +135,14 @@
                </div>
            </form>
        </div>
+       @if ($errors->any())
+           <div class="alert alert-danger">
+               <ul>
+                   @foreach ($errors->all() as $error)
+                       <li>{{ $error }}</li>
+                   @endforeach
+               </ul>
+           </div>
+       @endif
+
 @endsection

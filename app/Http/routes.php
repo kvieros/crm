@@ -26,5 +26,6 @@ Route::get('/logout', 'AuthenticationUser@getLogout');
 
 //Customer routs
 Route::get('/addcustomer', 'customers\Customers@addCustomer');
+Route::post('/addcustomer', 'customers\Customers@postAddCustomer');
 Route::get('/customerlist', 'customers\Customers@customerList');
 Route::get('/groups', 'customers\Customers@groups');
