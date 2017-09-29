@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="tabrle-primary">
+    <div class="table-primary">
         <div class="table-header">
             <div class="table-caption">
                 Customer list
@@ -22,17 +22,17 @@
             </thead>
             <tbody>
             @foreach($customers as $customer)
-            <tr>
-                <td><img src="image/{{$customer->image}} " width="50" height="50"></td>
-                <td>{{$customer->firstname}} {{$customer->lastname}}</td>
-                <td>{{$customer->mobile}}</td>
-                <td>{{$customer->email}}</td>
-                <td>{{$customer->address}}</td>
-                <td>{{$customer->customertype}}</td>
-                <td>{{$customer->created_at}}</td>
-                <td>{{$customer->status}}</td>
-                <td>action</td>
-            </tr>
+                <tr>
+                    <td><img src="image/{{$customer->image}} " width="50" height="50"></td>
+                    <td>{{$customer->firstname}} {{$customer->lastname}}</td>
+                    <td>{{$customer->mobile}}</td>
+                    <td>{{$customer->email}}</td>
+                    <td>{{$customer->address}}</td>
+                    <td>{{$customer->customertype}}</td>
+                    <td>{{$customer->created_at}}</td>
+                    <td>{{$customer->status}}</td>
+                    <td><button class="btn btn-success">Update</button> <button id="{{$customer->customer_id}}" name="{{$customer->firstname}} {{$customer->lastname}}" class="btn btn-danger">Delete</button></td>
+                </tr>
             @endforeach
             </tbody>
         </table>
@@ -40,4 +40,6 @@
             Footer
         </div>
     </div>
+    <script src="javascript/Main.js">
+    </script>
 @endsection

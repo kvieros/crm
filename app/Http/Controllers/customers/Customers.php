@@ -49,12 +49,24 @@ class Customers extends Controller
 
         return redirect('customerlist');
     }
-    public function customerList(){
+    public function customerList(Request $request){
 
         $customers = Customer::all();
 
         return view('customers.customerlist')->with('customers', $customers);
 
+    }
+    public function deleteCustomer(Request $request){
+
+        if($request->ajax()){
+
+            $customer_id = $request->get('id');
+            $customer_id = (int)$customer_id;
+            $customers = Customer::where('customer_id', $customer_id);
+            $customers->delete();
+            return redirect('customerlist');
+
+        }
     }
     public function groups(){
 

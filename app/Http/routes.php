@@ -28,4 +28,5 @@ Route::get('/logout', 'AuthenticationUser@getLogout');
 Route::get('/addcustomer', 'customers\Customers@addCustomer');
 Route::post('/addcustomer', 'customers\Customers@postAddCustomer');
 Route::get('/customerlist', 'customers\Customers@customerList');
+Route::post('/customerlist', 'customers\Customers@deleteCustomer');
 Route::get('/groups', 'customers\Customers@groups');
