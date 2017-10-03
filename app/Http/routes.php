@@ -29,4 +29,5 @@ Route::get('/addcustomer', 'customers\Customers@addCustomer');
 Route::post('/addcustomer', 'customers\Customers@postAddCustomer');
 Route::get('/customerlist', 'customers\Customers@customerList');
 Route::post('/customerlist', 'customers\Customers@deleteCustomer');
+Route::post('/updatecustomer', 'customers\Customers@updateCustomer');
 Route::get('/groups', 'customers\Customers@groups');
