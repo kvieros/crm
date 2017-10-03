@@ -47,6 +47,12 @@ class Customers extends Controller
 
         $customer->save();
 
+        $destinationPath = public_path('/image');
+
+        $image = $request->file('fileToUpload');
+
+        $image->move($destinationPath, $image);
+
         return redirect('customerlist');
     }
     public function customerList(Request $request){
@@ -64,13 +70,35 @@ class Customers extends Controller
             $customer_id = (int)$customer_id;
             $customers = Customer::where('customer_id', $customer_id);
             $customers->delete();
-            return redirect('customerlist');
+        }
+        return redirect('customerlist');
+    }
+    public function updateCustomer(Request $request){
+
+        if($request->ajax()){
+
+            $this->validate($request, [
+             'firstname' => "required|max:255|min:1",
+             'lastname' =>"required|max:255|min:1",
+             'email' => "required|email",
+             'mobile' => "required|max:255|min:10",
+             'address' => "required|max:255|min:1",
+             'customertype' => "required|max:255|min:3",
+             ]);
+
+            $customer_customer = $request->get('customer');
+            $customer_id = (int)$customer_customer;
+
+            $customer_firstname = $request->get('firstname');
+            $customer_lastname = $request->get('lastname');
+            $customer_email = $request->get('email');
+            $customer_mobile = $request->get('mobile');
+            $customer_address = $request->get('address');
+            $customer_customertype = $request->get('customertype');
+
+            Customer::where('customer_id', $customer_id)->update([ 'firstname' => $customer_firstname, 'lastname' =>  $customer_lastname, 'email' => $customer_email, 'mobile' => $customer_mobile, 'address' => $customer_address, 'customertype' => $customer_customertype ]);
 
         }
-    }
-    public function groups(){
-
-        return view('customers.groups');
 
     }
 }

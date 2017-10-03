@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use App\User;
-
+use Illuminate\Support\Facades\Hash;
 class AuthenticationUser extends Controller
 {
 
@@ -45,7 +45,7 @@ class AuthenticationUser extends Controller
 
         foreach($users as $user){
 
-            if($user->username == $request->username && $user->password == $request->password){
+            if($user->username == $request->username && Hash::check('$request->password', $user->password)){
 
               $this->auth->login($user);
 
@@ -68,7 +68,7 @@ class AuthenticationUser extends Controller
         $users->name=$request->name;
         $users->email=$request->email;
         $users->username=$request->username;
-        $users->password=$request->password;
+        $users->password= bcrypt('$request->password');
 
         $users->save();
 

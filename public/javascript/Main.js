@@ -2,7 +2,7 @@
  * Created by kuriakos on 29/9/2017.
  */
 init.push(function () {
-    $('#ui-bootbox-alert').on('click', function () {
+    /*$('#ui-bootbox-alert').on('click', function () {
         bootbox.alert({
                           message: "Hello world!",
                           callback: function() {
@@ -10,6 +10,47 @@ init.push(function () {
                           },
                           className: "bootbox-sm"
                       });
+    });*/
+    $("button[data]").on('click', function () {
+        var customer;
+        customer = $(this)[0];
+        customer = $(customer).attr("data");
+        var updateform = document.getElementById('formid');
+        updateform.style.display="block";
+
+        bootbox.confirm({
+                            title: "Update customer",
+                            message: updateform,
+                            callback: function(result) {
+                                if (result === true)
+                                {
+                                    var firstname = $('#firstnameid').val();
+                                    var lastname = $('#lastnameid').val();
+                                    var email = $('#emailid').val();
+                                    var mobile = $('#mobileid').val();
+                                    var address = $('#addressid').val();
+                                    var customertype = $('#customertypeid').val();
+
+                                    var params = "firstname="+firstname+"&lastname="+lastname+"&email="+email+"&mobile="+mobile+"&address="+address+"&customertype="+customertype+"&customer="+customer;
+
+                                    $.ajax({
+                                               type: "post",
+                                               url: "updatecustomer",
+                                               data: params,
+                                               success:  function(data){
+                                                   window.location.href = "customerlist";
+                                               },
+                                               error:function(){
+                                                   console.log(arguments);
+                                               }
+                                           })
+
+                                   // window.location.href = "customerlist";
+                                }
+                                window.location.href = "customerlist";
+                            },
+                            className: "bootbox-sm"
+                        });
     });
     $("button[id]").on('click', function () {
         var button;
@@ -25,7 +66,7 @@ init.push(function () {
                                                url: "customerlist",
                                                data: params,
                                                success:  function(data){
-
+                                                console.log(data);
                                                },
                                                 error:function(){
                                                    console.log(arguments);
@@ -36,7 +77,7 @@ init.push(function () {
                             className: "bootbox-sm"
                         });
     });
-    $('#ui-bootbox-prompt').on('click', function () {
+    /*$('#ui-bootbox-prompt').on('click', function () {
         bootbox.prompt({
                            title: "What is your name?",
                            callback: function(result) {
@@ -48,7 +89,7 @@ init.push(function () {
                            },
                            className: "bootbox-sm"
                        });
-    });
+    });*/
    /* $("button[id]").on('click', function () {
         var button;
         button = $(this)[0];
@@ -69,5 +110,5 @@ init.push(function () {
                            className: "bootbox-sm"
                        });
     });*/
-
+    //bootbox.dialog.
 });
