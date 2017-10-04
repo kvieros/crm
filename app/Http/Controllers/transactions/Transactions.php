@@ -26,7 +26,8 @@ class Transactions extends Controller
     public function addDeposit(){
 
         $customers = Customer::all();
-        $transactions = Transaction::all();
+        $transactions = Transaction::where('transactiontype', 'deposit')->get();
+
         return view('transactions.newdeposit')->with('customers', $customers)->with('transactions', $transactions);
 
     }
@@ -40,91 +41,84 @@ class Transactions extends Controller
         $transaction->customer_id = $request->customers;
         $transaction->transactiontype = 'deposit';
 
-       // $customer = Customer::where('customer_id', 'Vieros')->firstOrFail();
+       // $customer = Customer::where('customer_id', 'Vieros')->firstOrFail(); vriskei monadiki egrafi
 
         $transaction->save();
 
         $customers = Customer::all();
-        $transactions = Transaction::all();
+        $transactions = Transaction::where('transactiontype', 'deposit')->get();
+
         return view('transactions.newdeposit')->with('customers', $customers)->with('transactions', $transactions);
     }
 
-   /* public function addExpense(){
-
-        return view('transactions.adddeposit');
-
-    }
-    public function postAddExpense(CustomerRequest $request, Customer $customer)
-    {
-
-        $customer->firstname=$request->firstname;
-        $customer->lastname=$request->lastname;
-        $customer->email=$request->email;
-        $customer->mobile=$request->mobile;
-        $customer->image=$request->fileToUpload;
-        $customer->bankdetails=$request->bankdetails;
-        $customer->passport=$request->passport;
-        $customer->facebookid=$request->facebookid;
-        $customer->dateofbirth=$request->dateofbirth;
-        $customer->address=$request->address;
-        $customer->customertype=$request->customertype;
-        $customer->sex=$request->optionsRadios;
-        $customer->status=$request->Radios;
-
-        $customer->save();
-
-        return redirect('customerlist');
-    }
-
-    public function viewExpense(Request $request){
+    public function addExpense(){
 
         $customers = Customer::all();
+        $transactions = Transaction::where('transactiontype', 'expense')->get();
 
-        return view('customers.customerlist')->with('customers', $customers);
+        return view('transactions.newexpense')->with('customers', $customers)->with('transactions', $transactions);
 
     }
+    public function postAddExpense(Request $request, Transaction $transaction)
+    {
+
+        $transaction->accountfrom = $request->account;
+        $transaction->date = $request->date;
+        $transaction->description = $request->description;
+        $transaction->amount = $request->amount;
+        $transaction->customer_id = $request->customers;
+        $transaction->transactiontype = 'expense';
+
+        $transaction->save();
+
+        $customers = Customer::all();
+        $transactions = Transaction::where('transactiontype', 'expense')->get();
+
+        return view('transactions.newexpense')->with('customers', $customers)->with('transactions', $transactions);
+    }
+
 
     public function addTransfer(){
 
-        return view('transactions.adddeposit');
+        $customers = Customer::all();
+        $transactions = Transaction::where('transactiontype', 'transfer')->get();
+
+        return view('transactions.newtransfer')->with('customers', $customers)->with('transactions', $transactions);
 
     }
-    public function postAddTransfer(CustomerRequest $request, Customer $customer)
+    public function postAddTransfer(Request $request, Transaction $transaction)
     {
 
-        $customer->firstname=$request->firstname;
-        $customer->lastname=$request->lastname;
-        $customer->email=$request->email;
-        $customer->mobile=$request->mobile;
-        $customer->image=$request->fileToUpload;
-        $customer->bankdetails=$request->bankdetails;
-        $customer->passport=$request->passport;
-        $customer->facebookid=$request->facebookid;
-        $customer->dateofbirth=$request->dateofbirth;
-        $customer->address=$request->address;
-        $customer->customertype=$request->customertype;
-        $customer->sex=$request->optionsRadios;
-        $customer->status=$request->Radios;
+        $transaction->accountfrom = $request->accountfrom;
+        $transaction->accountto = $request->accountto;
+        $transaction->date = $request->date;
+        $transaction->description = $request->description;
+        $transaction->amount = $request->amount;
+        $transaction->customer_id = $request->customers;
+        $transaction->transactiontype = 'transfer';
 
-        $customer->save();
-
-        return redirect('customerlist');
-    }
-
-    public function viewTransfer(Request $request){
+        $transaction->save();
 
         $customers = Customer::all();
+        $transactions = Transaction::where('transactiontype', 'transfer')->get();
 
-        return view('customers.customerlist')->with('customers', $customers);
+        return view('transactions.newtransfer')->with('customers', $customers)->with('transactions', $transactions);
+    }
+    public function viewTransfer(){
+
+
+        $transactions = Transaction::where('transactiontype', 'transfer')->get();
+
+        return view('transactions.viewtransfer')->with('transactions', $transactions);
 
     }
 
-    public function viewTransaction(Request $request){
+    public function viewTransactions(){
 
-        $customers = Customer::all();
+        $transactions = Transaction::all();
 
-        return view('customers.customerlist')->with('customers', $customers);
+        return view('transactions.viewtransactions')->with('transactions', $transactions);
 
-    }*/
+    }
 
 }

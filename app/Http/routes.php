@@ -34,3 +34,9 @@ Route::post('/updatecustomer', 'customers\Customers@updateCustomer');
 //Transaction routes
 Route::get('/newdeposit', 'transactions\Transactions@addDeposit');
 Route::post('/newdeposit', 'transactions\Transactions@postAddDeposit');
+Route::get('/newexpense', 'transactions\Transactions@addExpense');
+Route::post('/newexpense', 'transactions\Transactions@postAddExpense');
+Route::get('/newtransfer', 'transactions\Transactions@addTransfer');
+Route::post('/newtransfer', 'transactions\Transactions@postAddTransfer');
+Route::get('/viewtransfer', 'transactions\Transactions@viewTransfer');
+Route::get('/viewtransactions', 'transactions\Transactions@viewTransactions');

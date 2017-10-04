@@ -139,19 +139,19 @@ Use search to find needed section.
                             <a tabindex="-1" href="newdeposit"><span class="mm-text">New Deposit</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">New Expense</span></a>
+                            <a tabindex="-1" href="newexpense"><span class="mm-text">New Expense</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Transfer</span></a>
+                            <a tabindex="-1" href="newtransfer"><span class="mm-text">Transfer</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">View Transaction</span></a>
+                            <a tabindex="-1" href="viewtransactions"><span class="mm-text">View Transaction</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Balance Sheet</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Transfer Report</span></a>
+                            <a tabindex="-1" href="viewtransfer"><span class="mm-text">Transfer Report</span></a>
                         </li>
                     </ul>
                 </li>
