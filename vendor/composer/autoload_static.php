@@ -264,6 +264,7 @@ class ComposerStaticInitbad9243e5adbd8f6e16cdc581fb638f9
 
     public static $classMap = array (
         'CreateCustomersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_28_101157_create_customers_table.php',
+        'CreateTransactionTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_03_133219_create_transaction_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_104838_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

@@ -130,16 +130,13 @@ Use search to find needed section.
                         <li>
                             <a tabindex="-1" href="customerlist"><span class="mm-text">List</span></a>
                         </li>
-                        <li>
-                            <a tabindex="-1" href="groups"><span class="mm-text">Groups</span></a>
-                        </li>
                     </ul>
                 </li>
                 <li class="mm-dropdown">
                     <a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Transaction</span></a>
                     <ul>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">New Deposit</span></a>
+                            <a tabindex="-1" href="newdeposit"><span class="mm-text">New Deposit</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">New Expense</span></a>

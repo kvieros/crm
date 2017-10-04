@@ -47,11 +47,11 @@ class Customers extends Controller
 
         $customer->save();
 
-        $destinationPath = public_path('/image');
+        /*$destinationPath = public_path('/image');
 
         $image = $request->file('fileToUpload');
 
-        $image->move($destinationPath, $image);
+        $image->move($destinationPath, $image);*/
 
         return redirect('customerlist');
     }

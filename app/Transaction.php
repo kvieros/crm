@@ -10,17 +10,15 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Customer extends Model implements AuthenticatableContract,
+class Transaction extends Model implements AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
+    protected $table = 'transaction';
 
-    protected $table = 'customers';
+    public function customer(){
 
-    public function transaction(){
-
-        return $this->hasMany('App\Transaction');
+        return $this->belongsTo('App\Customer');
     }
-
 }

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CreateCustomersTable' => $baseDir . '/database/migrations/2017_09_28_101157_create_customers_table.php',
+    'CreateTransactionTable' => $baseDir . '/database/migrations/2017_10_03_133219_create_transaction_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_09_12_104838_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

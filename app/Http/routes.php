@@ -24,10 +24,13 @@ Route::Post('/login','AuthenticationUser@postLogin');
 Route::post('/register', 'AuthenticationUser@postRegister');
 Route::get('/logout', 'AuthenticationUser@getLogout');
 
-//Customer routs
+//Customer routes
 Route::get('/addcustomer', 'customers\Customers@addCustomer');
 Route::post('/addcustomer', 'customers\Customers@postAddCustomer');
 Route::get('/customerlist', 'customers\Customers@customerList');
 Route::post('/customerlist', 'customers\Customers@deleteCustomer');
 Route::post('/updatecustomer', 'customers\Customers@updateCustomer');
-Route::get('/groups', 'customers\Customers@groups');
+
+//Transaction routes
+Route::get('/newdeposit', 'transactions\Transactions@addDeposit');
+Route::post('/newdeposit', 'transactions\Transactions@postAddDeposit');
