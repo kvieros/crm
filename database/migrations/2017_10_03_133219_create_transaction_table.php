@@ -20,6 +20,8 @@ class CreateTransactionTable extends Migration
             $table->string('description');
             $table->decimal('amount', 8, 2);
             $table->string('transactiontype');
+            $table->decimal('debit', 8, 2);
+            $table->decimal('credit', 8, 2);
             $table->decimal('balance', 8, 2);
             $table->timestamps();
             $table->integer('customer_id')->unsigned();

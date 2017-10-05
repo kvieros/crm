@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Customer;
 use App\Transaction;
+use App\Bank;
+use App\Banks;
 
 class Transactions extends Controller
 {
@@ -18,74 +20,103 @@ class Transactions extends Controller
     {
 
         $this->auth = $auth;
-
         $this->middleware( 'auth');
 
     }
+    public function getBanks()
+    {
 
-    public function addDeposit(){
-
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'deposit')->get();
-
-        return view('transactions.newdeposit')->with('customers', $customers)->with('transactions', $transactions);
+        $banks = Banks::all();
+        return $banks;
 
     }
-    public function postAddDeposit(Request $request, Transaction $transaction)
+    public function getCustomers()
+    {
+
+        $customers = Customer::all();
+        return $customers;
+
+    }
+    public function getTransactions($transactiontype)
+    {
+
+        $transactions = Transaction::where('transactiontype', $transactiontype)->get();
+        return $transactions;
+
+    }
+    public function addDeposit()
+    {
+
+        return view('transactions.newdeposit')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('deposit'))
+            ->with('banks',$this->getBanks());
+
+    }
+    public function postAddDeposit(Request $request, Transaction $transaction, Bank $bank)
     {
 
         $transaction->accountfrom = $request->account;
         $transaction->date = $request->date;
         $transaction->description = $request->description;
-        $transaction->amount = $request->amount;
+        $transaction->credit = $request->amount;
+        $transaction->transactiontype =  'deposit';
         $transaction->customer_id = $request->customers;
-        $transaction->transactiontype = 'deposit';
-
-       // $customer = Customer::where('customer_id', 'Vieros')->firstOrFail(); vriskei monadiki egrafi
 
         $transaction->save();
 
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'deposit')->get();
+        $transactionbank = Transaction::orderBy('created_at', 'desc')->first();
 
-        return view('transactions.newdeposit')->with('customers', $customers)->with('transactions', $transactions);
+        $bank->account = $request->amount;
+        $bank->customer_id = $request->customers;
+        $bank->transaction_id = $transactionbank->transaction_id;
+
+        $bank->save();
+
+        return view('transactions.newdeposit')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('deposit'))
+            ->with('banks',$this->getBanks());
     }
 
-    public function addExpense(){
+    public function addExpense()
+    {
 
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'expense')->get();
-
-        return view('transactions.newexpense')->with('customers', $customers)->with('transactions', $transactions);
+        return view('transactions.newexpense')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('expense'))
+            ->with('banks',$this->getBanks());
 
     }
+
     public function postAddExpense(Request $request, Transaction $transaction)
     {
 
         $transaction->accountfrom = $request->account;
         $transaction->date = $request->date;
         $transaction->description = $request->description;
-        $transaction->amount = $request->amount;
-        $transaction->customer_id = $request->customers;
+        $transaction->debit = $request->amount;
         $transaction->transactiontype = 'expense';
+        $transaction->customer_id = $request->customers;
 
         $transaction->save();
 
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'expense')->get();
-
-        return view('transactions.newexpense')->with('customers', $customers)->with('transactions', $transactions);
+        return view('transactions.newexpense')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('expense'))
+            ->with('banks',$this->getBanks());
     }
 
+    public function addTransfer()
+    {
 
-    public function addTransfer(){
-
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'transfer')->get();
-
-        return view('transactions.newtransfer')->with('customers', $customers)->with('transactions', $transactions);
+        return view('transactions.newtransfer')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('transfer'))
+            ->with('banks',$this->getBanks());
 
     }
+
     public function postAddTransfer(Request $request, Transaction $transaction)
     {
 
@@ -93,27 +124,27 @@ class Transactions extends Controller
         $transaction->accountto = $request->accountto;
         $transaction->date = $request->date;
         $transaction->description = $request->description;
-        $transaction->amount = $request->amount;
+        $transaction->credit = $request->amount;
+        $transaction->transactiontype =  'transfer';
         $transaction->customer_id = $request->customers;
-        $transaction->transactiontype = 'transfer';
 
         $transaction->save();
 
-        $customers = Customer::all();
-        $transactions = Transaction::where('transactiontype', 'transfer')->get();
-
-        return view('transactions.newtransfer')->with('customers', $customers)->with('transactions', $transactions);
-    }
-    public function viewTransfer(){
-
-
-        $transactions = Transaction::where('transactiontype', 'transfer')->get();
-
-        return view('transactions.viewtransfer')->with('transactions', $transactions);
-
+        return view('transactions.newtransfer')
+            ->with('customers', $this->getCustomers())
+            ->with('transactions', $this->getTransactions('transfer'))
+            ->with('banks',$this->getBanks());
     }
 
-    public function viewTransactions(){
+    public function viewTransfer()
+    {
+
+        return view('transactions.viewtransfer')->with('transactions', $this->getTransactions('transfer'));
+
+    }
+
+    public function viewTransactions()
+    {
 
         $transactions = Transaction::all();
 

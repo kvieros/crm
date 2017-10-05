@@ -5,7 +5,7 @@
             <div class="table-primary">
                 <div class="table-header">
                     <div class="table-caption">
-                        Transfer Report
+                        Bank Account
                     </div>
                 </div>
                 <table class="table table-bordered">
@@ -16,6 +16,8 @@
                         <th>Type</th>
                         <th>Amount</th>
                         <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
                         <th>Balance</th>
                     </tr>
                     </thead>
@@ -27,6 +29,8 @@
                             <td>{{$transaction->transactiontype}}</td>
                             <td>{{$transaction->amount}}</td>
                             <td>{{$transaction->description}}</td>
+                            <td>{{$transaction->debit}}</td>
+                            <td>{{$transaction->credit}}</td>
                             <td>{{$transaction->balance}}</td>
                         </tr>
                     @endforeach

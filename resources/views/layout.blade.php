@@ -113,9 +113,7 @@ Use search to find needed section.
                      CSS:        styles/pixel-admin-less/demo.less or styles/pixel-admin-scss/_demo.scss
                      Javascript: html/assets/demo/demo.js
                  -->
-
                 <div class="text-bg"><span class="text-left">Welcome </span> <span class="text-semibold">{{session('user')}}</span></div>
-
             </div>
             <ul class="navigation">
                 <li>

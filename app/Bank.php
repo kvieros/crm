@@ -10,20 +10,20 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Transaction extends Model implements AuthenticatableContract,
+class Bank extends Model implements AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
-    protected $table = 'transaction';
 
+    protected $table = 'bank';
+
+    public function transaction(){
+
+        return $this->belongsTo('App\Transaction');
+    }
     public function customer(){
 
         return $this->belongsTo('App\Customer');
     }
-    public function bank(){
-
-        return $this->hasMany('App\Bank');
-    }
-
 }

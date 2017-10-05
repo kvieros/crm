@@ -51,29 +51,11 @@
                        <input type="text" class="form-control"  name="facebookid" placeholder="Enter Facebook details">
                    </div>
                </div>
-               <script>
-                   init.push(function () {
-                       var options = {
-                           todayBtn: "linked",
-                           orientation: $('body').hasClass('right-to-left') ? "auto right" : 'auto auto'
-                       }
-                       $('#bs-datepicker-example').datepicker(options);
-
-                       $('#bs-datepicker-component').datepicker();
-
-                       var options2 = {
-                           orientation: $('body').hasClass('right-to-left') ? "auto right" : 'auto auto'
-                       }
-                       $('#bs-datepicker-range').datepicker(options2);
-
-                       $('#bs-datepicker-inline').datepicker();
-                   });
-               </script>
                <div class="form-group">
                    <label for="jq-validation-email" class="col-sm-3 control-label">Date of Bitrh</label>
                    <div class="col-sm-9">
                        <div class="input-group date" id="bs-datepicker-component">
-                       <input type="text" class="form-control" name="dateofbirth" ><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                       <input type="date" class="form-control" name="dateofbirth" ><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                    </div>
                    </div>
                </div>

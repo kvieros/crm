@@ -23,4 +23,8 @@ class Customer extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Transaction');
     }
 
+    public function bank(){
+
+        return $this->hasMany('App\Bank');
+    }
 }

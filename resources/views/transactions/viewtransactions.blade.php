@@ -16,8 +16,8 @@
                             <th>Type</th>
                             <th>Amount</th>
                             <th>Description</th>
-                            {{--<th>Debit</th>
-                            <th>Credit</th>--}}
+                            <th>Debit</th>
+                            <th>Credit</th>
                             <th>Balance</th>
                         </tr>
                         </thead>
@@ -29,20 +29,16 @@
                                 <td>{{$transaction->transactiontype}}</td>
                                 <td>{{$transaction->amount}}</td>
                                 <td>{{$transaction->description}}</td>
-                                {{--<td>{{$transaction->debit}}</td>
-                                <td>{{$transaction->credit}}</td>--}}
+                                <td>{{$transaction->debit}}</td>
+                                <td>{{$transaction->credit}}</td>
                                 <td>{{$transaction->balance}}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="table-footer">
-                        Footer
-                    </div>
                 </div>
             </div>
         </div>
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

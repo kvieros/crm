@@ -263,6 +263,8 @@ class ComposerStaticInitbad9243e5adbd8f6e16cdc581fb638f9
     );
 
     public static $classMap = array (
+        'CreateBankTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_04_130946_create_bank_table.php',
+        'CreateBanksTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_05_113116_create_banks_table.php',
         'CreateCustomersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_28_101157_create_customers_table.php',
         'CreateTransactionTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_03_133219_create_transaction_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_104838_create_users_table.php',
@@ -744,6 +746,7 @@ class ComposerStaticInitbad9243e5adbd8f6e16cdc581fb638f9
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'RemoveAccountToTransactionTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_05_102734_remove_account_to_transaction_table.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',
