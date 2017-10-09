@@ -306,6 +306,17 @@ Use search to find needed section.
                         </li>
                     </ul>
                 </li>
+                <li class="mm-dropdown">
+                    <a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Tools</span></a>
+                    <ul>
+                        <li>
+                            <a tabindex="-1" href="forms-layouts.html"><span class="mm-text">Services</span></a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" href="forms-general.html"><span class="mm-text">Send Email</span></a>
+                        </li>
+                    </ul>
+                </li>
             </ul> <!-- / .navigation -->
         </div> <!-- / #main-menu-inner -->
     </div> <!-- / #main-menu -->
