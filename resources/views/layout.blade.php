@@ -313,7 +313,7 @@ Use search to find needed section.
                             <a tabindex="-1" href="forms-layouts.html"><span class="mm-text">Services</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="forms-general.html"><span class="mm-text">Send Email</span></a>
+                            <a tabindex="-1" href="sendemail"><span class="mm-text">Send Email</span></a>
                         </li>
                     </ul>
                 </li>

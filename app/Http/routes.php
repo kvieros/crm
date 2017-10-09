@@ -47,3 +47,5 @@ Route::get('/viewtransfer', 'transactions\Transactions@viewTransfer');
 Route::get('/viewtransactions', 'transactions\Transactions@viewTransactions');
 
 //Tools
+Route::get('/sendemail', 'email\SendEmail@getSendEmail');
+Route::post('/sendemail', 'email\SendEmail@postSendEmail');
