@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Http\Requests\CustomerRequest;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Transaction;
+use App\Bank;
 
 class Customers extends Controller
 {
@@ -68,6 +70,13 @@ class Customers extends Controller
 
             $customer_id = $request->get('id');
             $customer_id = (int)$customer_id;
+
+            $bank = Bank::where('customer_id', $customer_id);
+            $bank->delete();
+
+            $transaction= Transaction::where('customer_id', $customer_id);
+            $transaction->delete();
+
             $customers = Customer::where('customer_id', $customer_id);
             $customers->delete();
         }
