@@ -11,6 +11,11 @@
 |
 */
 
+
+//call the service container
+$stripe = App::make('App\Billing\Stripe');
+// dd($stripe);
+
 Route::get('/', function () {
 
     return view('index');
@@ -40,3 +45,5 @@ Route::get('/newtransfer', 'transactions\Transactions@addTransfer');
 Route::post('/newtransfer', 'transactions\Transactions@postAddTransfer');
 Route::get('/viewtransfer', 'transactions\Transactions@viewTransfer');
 Route::get('/viewtransactions', 'transactions\Transactions@viewTransactions');
+
+//Tools
