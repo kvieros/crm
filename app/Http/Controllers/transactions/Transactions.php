@@ -73,6 +73,13 @@ class Transactions extends Controller
 
         $bank->save();
 
+        $totalaccount = Bank::where('customer_id',$request->customers)->first();;
+
+        $totalaccount = $totalaccount->account + $request->amount;
+
+        Bank::where('customer_id', $request->customers)
+            ->update(['account' => $totalaccount]);;
+
         return view('transactions.newdeposit')
             ->with('customers', $this->getCustomers())
             ->with('transactions', $this->getTransactions('deposit'))
@@ -89,7 +96,7 @@ class Transactions extends Controller
 
     }
 
-    public function postAddExpense(Request $request, Transaction $transaction)
+    public function postAddExpense(Request $request,  Transaction $transaction, Bank $bank)
     {
 
         $transaction->accountfrom = $request->account;
@@ -100,6 +107,21 @@ class Transactions extends Controller
         $transaction->customer_id = $request->customers;
 
         $transaction->save();
+
+        $transactionbank = Transaction::orderBy('created_at', 'desc')->first();
+
+        $bank->account = $request->amount;
+        $bank->customer_id = $request->customers;
+        $bank->transaction_id = $transactionbank->transaction_id;
+
+        $bank->save();
+
+        $totalaccount = Bank::where('customer_id',$request->customers)->first();;
+
+        $totalaccount = $totalaccount->account - $request->amount;
+
+        Bank::where('customer_id', $request->customers)
+               ->update(['account' => $totalaccount]);;
 
         return view('transactions.newexpense')
             ->with('customers', $this->getCustomers())
