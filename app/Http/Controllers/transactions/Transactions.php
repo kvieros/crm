@@ -11,6 +11,7 @@ use App\Customer;
 use App\Transaction;
 use App\Bank;
 use App\Banks;
+use App\Balance\Stripe;
 
 class Transactions extends Controller
 {
@@ -164,7 +165,12 @@ class Transactions extends Controller
         return view('transactions.viewtransfer')->with('transactions', $this->getTransactions('transfer'));
 
     }
+   /* public function balance()
+    {
 
+        return view('transactions.balance');
+
+    }*/
     public function viewTransactions()
     {
 

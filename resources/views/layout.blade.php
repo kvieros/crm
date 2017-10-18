@@ -146,7 +146,7 @@ Use search to find needed section.
                             <a tabindex="-1" href="viewtransactions"><span class="mm-text">View Transaction</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Balance Sheet</span></a>
+                            <a tabindex="-1" href="balance"><span class="mm-text">Balance Sheet</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="viewtransfer"><span class="mm-text">Transfer Report</span></a>

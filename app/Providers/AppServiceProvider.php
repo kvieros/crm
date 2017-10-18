@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 
     /**
@@ -25,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
 
         //bind it to the service container
-        \App::bind('App\Billing\Stripe', function(){
-            return new \App\Billing\Stripe(config('services.stripe.secret'));
+        \App::bind('App\Balance\Stripe', function(){
+            $balance = new \App\Balance\Stripe;
+            return $balance;
         });
     }
 }
