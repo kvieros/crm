@@ -16,6 +16,15 @@ Route::get('/', function () {
 
     return view('index');
 });
+//Service for balances
+Route::get('/balance', function () {
+    //call the service container
+    $balance = App::make('App\Balance\Stripe');
+    $balance = $balance->getBalance();
+
+    return view('transactions.balance' , compact('balance'));
+    //dd($balance);
+});
 
 //Authendicate user routes
 Route::get('/main', 'AuthenticationUser@getMain');
@@ -42,15 +51,9 @@ Route::post('/newtransfer', 'transactions\Transactions@postAddTransfer');
 Route::get('/viewtransfer', 'transactions\Transactions@viewTransfer');
 Route::get('/viewtransactions', 'transactions\Transactions@viewTransactions');
 
-Route::get('/balance', function () {
-    //call the service container
-
-    $balance = App::make('App\Balance\Stripe');
-
-    $balance = $balance->getBalance();
-    return view('transactions.balance' , compact('balance'));
-    //dd($balance);
-});
+//Invoices
+Route::get('/items', 'invoices\Invoices@getItem');
+Route::post('/newinvoice', 'invoices\Invoices@newInvoice');
 
 //Tools
 Route::get('/sendemail', 'email\SendEmail@getSendEmail');

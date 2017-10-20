@@ -157,7 +157,7 @@ Use search to find needed section.
                     <a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Sales</span></a>
                     <ul>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Invoices</span></a>
+                            <a tabindex="-1" href="items"><span class="mm-text">Invoices</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">New Invoices</span></a>
