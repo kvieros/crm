@@ -43,4 +43,13 @@ class Invoices extends Controller
         return view('invoices.newinvoice')->with('item',$item);
 
     }
+    public function addInvoice(Request $request)
+    {
+        $id = $request->itemname;
+
+        $item = Items::find($id);
+
+        return view('invoices.displayinvoices')->with('item',$item);
+
+    }
 }

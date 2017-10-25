@@ -88,8 +88,8 @@ Use search to find needed section.
                             <!-- /3. $END_NAVBAR_ICON_BUTTONS -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
-
-                                    <span>Hello {{session('user')}}</span>
+                                    {{Config::set('vars.username', session('user'))}}
+                                    <span>Hello  {{Config::get('vars.username')}}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Profile</a></li>
@@ -157,10 +157,10 @@ Use search to find needed section.
                     <a href="#"><i class="menu-icon fa fa-th"></i><span class="mm-text">Sales</span></a>
                     <ul>
                         <li>
-                            <a tabindex="-1" href="items"><span class="mm-text">Invoices</span></a>
+                            <a tabindex="-1" href="items"><span class="mm-text">New Invoices</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">New Invoices</span></a>
+                            <a tabindex="-1" href="invoices"><span class="mm-text">Invoices</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Recurring invoices</span></a>

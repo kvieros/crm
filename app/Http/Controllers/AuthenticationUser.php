@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Config;
 class AuthenticationUser extends Controller
 {
 
@@ -48,7 +49,10 @@ class AuthenticationUser extends Controller
             if($user->username == $request->username && Hash::check('$request->password', $user->password)){
 
               $this->auth->login($user);
-
+             //   $value = session('user', $user->username);
+               // Config::set('vars.username', $user->username);
+              //  config(['vars.username' => $user->username]);
+                Config::set('vars.username', $user->username);
               return redirect('main')->with('user', $user->username);
 
             }
