@@ -22,4 +22,8 @@ class Items extends  Model implements AuthenticatableContract,
 
         return $this->belongsTo('App\Customer');
     }
+    public function invoices(){
+
+        return $this->hasOne( 'App\Invoice' );
+    }
 }

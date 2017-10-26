@@ -266,6 +266,7 @@ class ComposerStaticInitbad9243e5adbd8f6e16cdc581fb638f9
         'CreateBankTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_04_130946_create_bank_table.php',
         'CreateBanksTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_05_113116_create_banks_table.php',
         'CreateCustomersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_28_101157_create_customers_table.php',
+        'CreateInvoicesTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_25_122148_create_invoices_table.php',
         'CreateItemsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_19_111556_create_items_table.php',
         'CreateTransactionTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_03_133219_create_transaction_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_104838_create_users_table.php',

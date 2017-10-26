@@ -117,7 +117,7 @@ class Transactions extends Controller
 
         $bank->save();
 
-        $totalaccount = Bank::where('customer_id',$request->customers)->first();;
+        $totalaccount = Bank::where('customer_id',$request->customers)->first();
 
         $totalaccount = $totalaccount->account - $request->amount;
 
