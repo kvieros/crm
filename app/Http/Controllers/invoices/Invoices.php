@@ -14,6 +14,7 @@ use App\Bank;
 use App\Banks;
 use App\Balance\Stripe;
 use App\Items;
+use App\Reccuring;
 
 class Invoices extends Controller
 {
@@ -46,7 +47,6 @@ class Invoices extends Controller
     public function newInvoice(Request $request)
     {
         $id = $request->itemname;
-
         $item = Items::find($id);
         $customers = Customer::All();
 
@@ -89,7 +89,8 @@ class Invoices extends Controller
 	
 	public function getReccuringInvoices()
     {
-        $invoices = Invoice::All();
+		//$item = Items::find(1)->invoices;
+        $invoices = Reccuring::All();
 
         return view('invoices.reccuringinvoices')->with('invoices',$invoices);
 

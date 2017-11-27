@@ -11,6 +11,7 @@ return array(
     'CreateCustomersTable' => $baseDir . '/database/migrations/2017_09_28_101157_create_customers_table.php',
     'CreateInvoicesTable' => $baseDir . '/database/migrations/2017_10_25_122148_create_invoices_table.php',
     'CreateItemsTable' => $baseDir . '/database/migrations/2017_10_19_111556_create_items_table.php',
+    'CreateReccuringinvoicesTable' => $baseDir . '/database/migrations/2017_11_27_121542_create_reccuringinvoices_table.php',
     'CreateTransactionTable' => $baseDir . '/database/migrations/2017_10_03_133219_create_transaction_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_09_12_104838_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
