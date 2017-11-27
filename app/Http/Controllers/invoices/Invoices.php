@@ -86,4 +86,12 @@ class Invoices extends Controller
         return view('invoices.displayinvoices')->with('invoices',$invoices);
 
     }
+	
+	public function getReccuringInvoices()
+    {
+        $invoices = Invoice::All();
+
+        return view('invoices.reccuringinvoices')->with('invoices',$invoices);
+
+    }
 }

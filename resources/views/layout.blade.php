@@ -163,7 +163,7 @@ Use search to find needed section.
                             <a tabindex="-1" href="invoices"><span class="mm-text">Invoices</span></a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">Recurring invoices</span></a>
+                            <a tabindex="-1" href="reccuringinvoices"><span class="mm-text">Recurring invoices</span></a>
                         </li>
                         <li>
                             <a tabindex="-1" href="layouts-grid.html"><span class="mm-text">quotes</span></a>

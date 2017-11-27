@@ -56,6 +56,7 @@ Route::get('/items', 'invoices\Invoices@getItem');
 Route::post('/newinvoice', 'invoices\Invoices@newInvoice');
 Route::post('/addinvoice', 'invoices\Invoices@addInvoice');
 Route::get('/invoices', 'invoices\Invoices@getInvoice');
+Route::get('/reccuringinvoices', 'invoices\Invoices@getReccuringInvoices');
 
 //Tools
 Route::get('/sendemail', 'email\SendEmail@getSendEmail');
